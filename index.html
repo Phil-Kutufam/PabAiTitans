@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAB AI Titans | Transforming Tomorrow</title>    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.carousel-slide');
+            const carousel = document.querySelector('.carousel');
+            
+            // Create dots
+            const dotsContainer = document.querySelector('.carousel-dots');
+            slides.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+
+            // Auto advance slides
+            setInterval(() => moveSlide(1), 5000);
+
+            window.moveSlide = function(direction) {
+                currentSlide = (currentSlide + direction + slides.length) % slides.length;
+                updateCarousel();
+            };
+
+            window.goToSlide = function(index) {
+                currentSlide = index;
+                updateCarousel();
+            };
+
+            function updateCarousel() {
+                carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+                document.querySelectorAll('.dot').forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <nav>
+        <div class="logo">PabAI<span>Titans</span></div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Powering the Future with AI</h1>
+            <p>Transform your business with cutting-edge artificial intelligence solutions</p>
+            <button class="cta-button">Get Started</button>
+        </div>
+    </section>    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="service-grid">
+            <a href="#" class="service-card" onclick="window.open('https://example.com/business-plans', '_blank')">
+                <i class="fas fa-briefcase"></i>
+                <h3>Business Logos & Plan</h3>
+                <p>Professional branding and strategic business planning solutions</p>
+            </a>
+            <a href="#" class="service-card" onclick="window.open('https://example.com/social-media', '_blank')">
+                <i class="fas fa-share-nodes"></i>
+                <h3>Social Media Content Marketing</h3>
+                <p>Engaging content strategy and social media management</p>
+            </a>
+            <a href="#" class="service-card" onclick="window.open('https://example.com/ai-training', '_blank')">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>AI Training</h3>
+                <p>Comprehensive AI education and implementation training</p>
+            </a>
+            <a href="#" class="service-card" onclick="window.open('https://example.com/web-design', '_blank')">
+                <i class="fas fa-code"></i>
+                <h3>Web Design & Development</h3>
+                <p>Custom website solutions and modern web applications</p>
+            </a>
+        </div>
+    </section>    <section id="about" class="about">
+        <div class="about-content">
+            <h2>Why Choose Us</h2>
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80" alt="AI Technology">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80" alt="Innovation">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?w=800&q=80" alt="Digital Transformation">
+                    </div>
+                </div>
+                <button class="carousel-btn prev" onclick="moveSlide(-1)">❮</button>
+                <button class="carousel-btn next" onclick="moveSlide(1)">❯</button>
+                <div class="carousel-dots"></div>
+            </div>
+            <p>With over a decade of experience in AI innovation, we deliver transformative solutions that drive business growth. Our team of experts is committed to your success.</p>
+            <div class="stats">
+                <div class="stat">
+                    <span class="number">500+</span>
+                    <span class="label">Clients</span>
+                </div>
+                <div class="stat">
+                    <span class="number">95%</span>
+                    <span class="label">Success Rate</span>
+                </div>
+                <div class="stat">
+                    <span class="number">24/7</span>
+                    <span class="label">Support</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-form">
+            <input type="text" placeholder="Name">
+            <input type="email" placeholder="Email">
+            <textarea placeholder="Message"></textarea>
+            <button class="submit-button">Send Message</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>PAB AITitans</h3>
+                <p>Transforming businesses through AI innovation</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: pabaititans@gmail.com</p>
+                <p>Phone: +233 27-712-5966, +233 54-705-3259</p>
+                <p>WhatsApp: +233 55-221-8998</p>
+                <p>Address: PAB AITitans, Accra, Ghana</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>                <div class="social-links">
+                    <a href="mailto:pabaititans@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.instagram.com/pabaititans?igsh=cjJmMHZkcW15cHF1"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/titanspab?s=21"><i class="fab fa-twitter"></i></a>
+                    <a href="https://github.com/Phil-Kutufam"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 PAB AITitans. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
